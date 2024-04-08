@@ -9,8 +9,8 @@ def dowload_zillow_page(page, url):
             print(f'Error 404: Page {url} not found. Trying again...')
             continue
 
-        if not page.title().startswith('60657'):
-            print(f'Error: Page title does not start with 60657. Current title: {page.title()}')
+        if not page.title().startswith('60613'):
+            print(f'Error: Page title does not start with 60613. Current title: {page.title()}')
             page.close()
             time.sleep(5)
             page = browser.new_page(java_script_enabled=True)
@@ -41,9 +41,9 @@ browser = playwright.chromium.launch(
 
 city_name = 'Chicago'.replace(' ', '-')
 state = 'il'
-zip_code = '60657'
+zip_code = '60613'
 
-for page_num in range(1, 4):
+for page_num in range(3, 4):
     page = browser.new_page(java_script_enabled=True)
     url = f'https://www.zillow.com/{city_name}-{state}-{zip_code}/{page_num}_p'
     print(url)
